@@ -26,7 +26,17 @@ function clearGrid() {
   squares.forEach(square => square.classList.remove('square-black'));
 }
 
+function deleteGrid() {
+  const container = document.querySelector('.container');
+  container.textContent = '';
+}
+
 makeGrid(16);
 
 const clearButton = document.getElementById('clear-btn');
-clearButton.addEventListener('click', clearGrid)
+clearButton.addEventListener('click', clearGrid);
+clearButton.addEventListener('click', () => {
+  let size = prompt('Enter an integer for the grid size: ');
+  deleteGrid();
+  makeGrid(size); 
+})

@@ -20,6 +20,7 @@ body {
 
 button {
   font-family: monospace;
+  width: 75px;
 }
 
 .slider {
@@ -75,7 +76,7 @@ button {
 .square {
   flex: 1 0 auto;
   border-style: solid;
-  border-color: black;
+  border-color: lightgray;
   border-width: 1px;
 }
 

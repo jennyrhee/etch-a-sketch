@@ -31,7 +31,7 @@ function deleteGrid() {
   container.textContent = '';
 }
 
-makeGrid(16);
+makeGrid(40);
 const slider = document.getElementById('my-slider');
 const output = document.getElementById('slider-value');
 output.textContent = `${slider.value} x ${slider.value}`;
@@ -43,7 +43,3 @@ slider.oninput = () => {
 
 const clearButton = document.getElementById('clear-btn');
 clearButton.addEventListener('click', clearGrid);
-clearButton.addEventListener('click', () => {
-  deleteGrid();
-  makeGrid(slider.value);
-})

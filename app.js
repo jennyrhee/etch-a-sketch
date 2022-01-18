@@ -1,3 +1,10 @@
+function addHoverShading(cssClass) {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach(square => square.addEventListener('mouseover', () => {
+  square.classList.add(cssClass)
+  }))
+}
+
 function makeGrid(size) {
   const container = document.querySelector('.container');
   for (let i = 0; i < size; i++) {
@@ -11,10 +18,7 @@ function makeGrid(size) {
     container.appendChild(row);
   }
 
-  const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.addEventListener('mouseover', () => {
-  square.classList.add('square-black')
-}))
+  addHoverShading('square-black');
 }
 
 function clearGrid() {

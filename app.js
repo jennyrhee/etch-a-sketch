@@ -45,5 +45,5 @@ const clearButton = document.getElementById('clear-btn');
 clearButton.addEventListener('click', clearGrid);
 clearButton.addEventListener('click', () => {
   deleteGrid();
-  makeGrid(slider.value)
+  makeGrid(slider.value);
 })

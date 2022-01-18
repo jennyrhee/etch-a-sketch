@@ -32,11 +32,18 @@ function deleteGrid() {
 }
 
 makeGrid(16);
+const slider = document.getElementById('my-slider');
+const output = document.getElementById('slider-value');
+output.textContent = `${slider.value} x ${slider.value}`;
+slider.oninput = () => {
+  deleteGrid()
+  makeGrid(slider.value)
+  output.textContent = `${slider.value} x ${slider.value}`;
+}
 
 const clearButton = document.getElementById('clear-btn');
 clearButton.addEventListener('click', clearGrid);
 clearButton.addEventListener('click', () => {
-  let size = prompt('Enter an integer for the grid size: ');
   deleteGrid();
-  makeGrid(size); 
+  makeGrid(slider.value)
 })

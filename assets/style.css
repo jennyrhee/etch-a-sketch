@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  font-family: monospace;
 }
 
 .header {
@@ -11,6 +12,10 @@ body {
 
 .btn-container {
   margin: 20px;
+}
+
+button {
+  font-family: monospace;
 }
 
 .container {

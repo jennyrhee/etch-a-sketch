@@ -6,7 +6,7 @@ body {
 }
 
 .header {
-  font-size: 24px;
+  font-size: 36px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -15,12 +15,34 @@ body {
   display: flex;
   justify-content: space-between;
   width: 550px;
-  margin: 20px auto;
+  margin: 5px auto;
+}
+
+.styles-container {
+  border-style: groove;
+  padding: 2px;
+}
+
+.styles-title {
+  font-size: 16px;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
 button {
   font-family: monospace;
   width: 75px;
+  max-height: 30px;
+}
+
+#eraser-btn,
+#clear-btn {
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.slider-container {
+  margin-top: 15px;
 }
 
 .slider {

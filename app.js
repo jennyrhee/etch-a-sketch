@@ -40,10 +40,10 @@ function deleteGrid() {
   container.textContent = '';
 }
 
-makeGrid(40);
 const slider = document.getElementById('my-slider');
 const output = document.getElementById('slider-value');
 output.textContent = `${slider.value} x ${slider.value}`;
+makeGrid(slider.value);
 slider.oninput = () => {
   deleteGrid()
   makeGrid(slider.value)

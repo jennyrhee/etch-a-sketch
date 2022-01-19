@@ -7,11 +7,21 @@ function getRandomColor() {
   return color;
 }
 
-function addHoverShading(color='black') {
+function addHoverShading() {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.addEventListener('mouseover', () => {
-    let squareColor = color ? color : getRandomColor();
-    square.style.backgroundColor = squareColor;
+    let squareColor = '';
+    switch (mode) {
+      case 'rainbow':
+        squareColor = getRandomColor();
+        break;
+      case 'eraser':
+        squareColor = 'white';
+        break;
+      default:
+        squareColor = mode;
+    }
+    square.style.backgroundColor = squareColor;   
   }));
 }
 
@@ -40,6 +50,8 @@ function deleteGrid() {
   container.textContent = '';
 }
 
+let mode = 'black';
+
 const slider = document.getElementById('my-slider');
 const output = document.getElementById('slider-value');
 output.textContent = `${slider.value} x ${slider.value}`;
@@ -55,6 +67,5 @@ clearButton.addEventListener('click', clearGrid);
 
 const styleButtons = document.querySelectorAll('.style-btn');
 styleButtons.forEach(btn => btn.addEventListener('click', () => {
-  (btn.textContent === 'Black') ? addHoverShading() :
-    addHoverShading(false);
-}))
+  mode = btn.textContent.toLowerCase();
+}));

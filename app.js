@@ -23,7 +23,7 @@ function makeGrid(size) {
 
 function clearGrid() {
   const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.classList.remove('square-black'));
+  squares.forEach(square => square.style.backgroundColor = 'white');
 }
 
 function deleteGrid() {

@@ -7,16 +7,37 @@ function getRandomColor() {
   return color;
 }
 
+function darkenColor(square) {
+  let brightness = Number(square.getAttribute('brightness'));
+  if (brightness > 0) {
+    brightness -= 10;
+    square.setAttribute('brightness', brightness)
+    square.style.filter = `brightness(${brightness}%)`
+  }
+}
+
+function resetSquare(square) {
+  square.style = null;
+  square.removeAttribute('brightness');
+}
+
 function addHoverShading() {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.addEventListener('mouseover', () => {
     let squareColor = '';
     switch (mode) {
       case 'rainbow':
-        squareColor = getRandomColor();
+        if (square.style.backgroundColor.search('rgb') >= 0) {
+          squareColor = square.style.backgroundColor;
+          darkenColor(square);
+        } else {
+          squareColor = getRandomColor();
+          square.setAttribute('brightness', 100);
+          square.style.filter = 'brightness(100%)';
+        }
         break;
       case 'eraser':
-        squareColor = 'white';
+        resetSquare(square);
         break;
       default:
         squareColor = mode;
@@ -42,7 +63,9 @@ function makeGrid(size) {
 
 function clearGrid() {
   const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.style.backgroundColor = 'white');
+  squares.forEach(square => {
+    resetSquare(square);
+  })
 }
 
 function deleteGrid() {
